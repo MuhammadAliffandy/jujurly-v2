@@ -20,7 +20,31 @@ function FeedbackForm({ userId }: FeedbackFormProps) {
   const [isLoading, setLoading] = useState(false);
   const navigate = useNavigate();
   const nextStep = () => setStep(step + 1);
+  const backStep = (index: number) => setStep(step != 1 ? index : 1);
   const { handleSubmit, control } = useForm<FeedbackRequest>();
+
+  const textFeedbackPrimary = [
+    {
+      icon: "mdi:mail",
+      title: "Pertama kali Kenal ",
+      subtitle: "Coba Ceritain kamu awal ketemu",
+    },
+    {
+      icon: "mdi:mail",
+      title: "Isi Feedback ",
+      subtitle: "Berikan feedback yang jelas dan konstruktif",
+    },
+    {
+      icon: "mdi:mail",
+      title: "Isi Konteks ",
+      subtitle: "Berikan Konteks tentang feedback kamu",
+    },
+    {
+      icon: "mdi:mail",
+      title: "Email Kamu ",
+      subtitle: "Masukin Email Kamu yahh!",
+    },
+  ];
 
   const handleFeedbackSending = async (data: FeedbackRequest) => {
     setLoading(true);
@@ -68,16 +92,19 @@ function FeedbackForm({ userId }: FeedbackFormProps) {
     <>
       <AppContainer className="flex w-full h-screen bg-gray-100/70 relative">
         <AppContainer className="w-[30%] hidden sm:hidden md:flex lg:flex  xl:flex  h-full pt-[50px] items-start justify-center">
-          <AppContainer className="flex flex-col w-full gap-[30px] items-center ">
-            {Array.from({ length: 4 }, (_, index) => {
+          <AppContainer className="flex flex-col  w-[80%] gap-[30px] items-start w-[] mt-[20px] ">
+            {textFeedbackPrimary.map((data, index) => {
               return (
                 <AppContainer
                   dataAos="fade-up"
                   dataAosDelay={index * 200}
-                  className="flex items-center gap-[20px] "
+                  className="flex items-center gap-[20px] cursor-pointer "
+                  onClick={() => {
+                    backStep(index + 1);
+                  }}
                 >
                   <Icon
-                    icon="mdi:mail"
+                    icon={data.icon}
                     className={`${
                       step >= index + 1 ? "text-blue-400" : "text-gray-400"
                     } text-[32px] p-[5px] rounded-md border-1`}
@@ -90,8 +117,8 @@ function FeedbackForm({ userId }: FeedbackFormProps) {
                     titleClassName={`text-[12px] font-bold ${
                       step >= index + 1 ? "text-blue-500" : "text-gray-500"
                     } `}
-                    title="Kenal doi darimana? atau siapa nih?"
-                    subtitle="Lo boleh kasih tau namdia kita kasih paham LOL"
+                    title={data.title}
+                    subtitle={data.subtitle}
                   />
                 </AppContainer>
               );

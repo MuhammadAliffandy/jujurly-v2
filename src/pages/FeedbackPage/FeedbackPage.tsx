@@ -3,9 +3,10 @@ import React, { useEffect, useState } from "react";
 import { useParams, Navigate, useNavigate } from "react-router-dom";
 import FeedbackForm from "../../pages/FeedbackPage/FeedbackForm";
 import type { UserFeedback } from "../../utils/types";
-import { updateToastConfig } from "../../utils/helper";
+import { CircularProgress } from "@mui/material";
 import { toast } from "react-toastify";
 import * as userRepository from "../../api/repository/userRepository";
+import AppContainer from "../../components/atoms/AppContainer/AppContainer";
 
 const FeedbackPage: React.FC = () => {
   const { userId } = useParams<{ userId: string }>();
@@ -20,39 +21,25 @@ const FeedbackPage: React.FC = () => {
     }
 
     handleUserLookup({ targetUser: userId });
-  }, [userId]);
+  }, []);
 
   const handleUserLookup = async (data: UserFeedback) => {
     setChecking(true);
-    const toastId = toast.loading("Proses Pendaftaran...");
 
     try {
       const res = await userRepository.userLookup(data.targetUser as string);
       if (res.statusNumber === 200) {
-        toast.update(
-          toastId,
-          updateToastConfig("Pendaftaran berhasil, Mulai masuk...", "success")
-        );
+        setUserExists(true);
       } else {
-        toast.update(
-          toastId,
-          updateToastConfig(
-            "Gagal mendapatkan link feedback untuk pengguna ini",
-            "error"
-          )
-        );
+        toast.error("Gagal mendapatkan link feedback untuk pengguna ini");
       }
       setChecking(false);
     } catch (error) {
       setChecking(false);
       console.log(error);
 
-      toast.update(
-        toastId,
-        updateToastConfig(
-          "Terjadi kesalahan saat menghubungi server. Coba lagi nanti.",
-          "error"
-        )
+      toast.error(
+        "Terjadi kesalahan saat menghubungi server. Coba lagi nanti."
       );
     }
   };
@@ -69,13 +56,18 @@ const FeedbackPage: React.FC = () => {
   }
   if (checking) {
     return (
-      <div style={{ textAlign: "center", marginTop: "2rem" }}>
-        Mengecek pengguna...
-      </div>
+      <AppContainer className="h-screen w-full flex items-center justify-center">
+        <AppContainer className="flex items-center gap-[10px]">
+          <CircularProgress />
+          <h3 className="text-blue-600 text-[24px] font-unbounded">
+            Mengecek pengguna...
+          </h3>
+        </AppContainer>
+      </AppContainer>
     );
   }
   if (userExists === false) {
-    return null; // Will redirect
+    return null;
   }
   return <FeedbackForm userId={"1"} />;
 };

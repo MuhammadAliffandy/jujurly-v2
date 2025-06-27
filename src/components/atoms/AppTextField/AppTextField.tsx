@@ -36,12 +36,12 @@ const AppTextField: React.FC<AppTextField> = (props) => {
             }}
             className={`w-full p-3 border rounded-2xl font-poppins ${
               props.className
-            } text-white ${
+            } text-white font-poppins ${
               fieldState.invalid ? "border-red-500" : "border-gray-300"
             }`}
           />
           {fieldState.error && (
-            <p className="text-sm text-red-500 mt-1">
+            <p className="text-sm text-red-500  font-poppins">
               {fieldState.error.message}
             </p>
           )}

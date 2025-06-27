@@ -17,6 +17,7 @@ const AppFaqSection: React.FC = () => {
         {Array.from({ length: 5 }, (_, index) => {
           return (
             <AppAccordion
+              key={index}
               dataAos="fade-up"
               dataAosDelay={index * 200}
               title={`Pertanyaan ${index + 1}`}

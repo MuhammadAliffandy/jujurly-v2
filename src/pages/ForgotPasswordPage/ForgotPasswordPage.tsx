@@ -24,9 +24,7 @@ const ForgotPasswordPage: React.FC = () => {
     try {
       const payload = {
         email: data.email,
-        password: data.password,
       };
-
       const res = await authRepository.forgotPass(payload);
 
       if (res.statusNumber == "OK") {
@@ -48,10 +46,7 @@ const ForgotPasswordPage: React.FC = () => {
       console.log(error);
       toast.update(
         toastId,
-        updateToastConfig(
-          "Failed to reset password. Please try again.",
-          "error"
-        )
+        updateToastConfig("Gagal mengirim Email. Silahakn coba lagi", "error")
       );
     }
   };

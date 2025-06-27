@@ -10,10 +10,10 @@ const AppChipSentiment: React.FC<AppChipSentimentProps> = (props) => {
         props.className != null && props.className
       } text-[10px] text-white py-[3px] font-bold px-[8px] rounded-xl ${
         props.type === "positif"
-          ? "bg-green-300"
+          ? "bg-green-400"
           : props.type === "negatif"
-          ? "bg-red-300"
-          : "bg-blue-300"
+          ? "bg-red-400"
+          : "bg-blue-400"
       } `}
     >
       {props.type === "positif" && "Positif"}

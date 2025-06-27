@@ -42,8 +42,6 @@ const AppNavbar = () => {
         </AppContainer>
 
         <AppContainer
-          dataAos="fade-down"
-          dataAosDelay={400}
           className={`
           ${
             sidebarOpen

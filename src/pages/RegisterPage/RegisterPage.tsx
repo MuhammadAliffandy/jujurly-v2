@@ -30,8 +30,15 @@ const RegisterPage: React.FC = () => {
 
   const handleRegister = async (data: Users) => {
     const toastId = toast.loading("Proses Pendaftaran...");
+
     try {
-      const res = await authRepository.register(data as Users);
+      const dataRegis = {
+        name: data.username,
+        email: data.email,
+        password: data.password,
+      };
+
+      const res = await authRepository.register(dataRegis as Users);
       if (res.statusNumber === 201) {
         toast.update(
           toastId,
@@ -98,7 +105,7 @@ const RegisterPage: React.FC = () => {
               </label>
               <AppTextField
                 control={control}
-                name="name"
+                name="username"
                 rules={{
                   required: "Name is required",
                   pattern: { value: "", message: "Invalid email format" },
@@ -171,8 +178,6 @@ const RegisterPage: React.FC = () => {
             </AppContainer>
 
             <AppButton
-              dataAos="zoom-in"
-              dataAosDelay={500}
               className="bg-blue-500 font-poppins py-[15px]"
               text="Daftar"
               type="submit"

@@ -107,7 +107,9 @@ const UserLookupPage: React.FC = () => {
             dataAosDelay={200}
             className="flex flex-col w-full h-max gap-[10px]"
           >
-            <label className="text-black text-[14px] font-poppins">Email</label>
+            <label className="text-black text-[14px] font-poppins">
+              Username ID
+            </label>
             <AppTextField
               control={control}
               name="targetUser"

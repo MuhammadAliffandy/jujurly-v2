@@ -1,6 +1,6 @@
 import AppContainer from "../../atoms/AppContainer/AppContainer";
 import AppCheck from "../../atoms/AppCheck/AppCheck";
-import AppButton from "../../atoms/AppButton/AppButton";
+
 import AppPopover from "../../molecules/AppPopover/AppPopover";
 import { useState } from "react";
 import { Icon } from "@iconify/react";
@@ -12,6 +12,7 @@ interface AppMiniToolabrProps {
   onChecked?: (value: boolean) => void;
   onChangeCheckedMode?: (value: boolean) => void;
   onDelete?: () => void;
+  onCopy?: () => void;
 }
 
 const AppMiniToolbar: React.FC<AppMiniToolabrProps> = (props) => {
@@ -50,14 +51,31 @@ const AppMiniToolbar: React.FC<AppMiniToolabrProps> = (props) => {
         </AppContainer>
       ) : (
         <AppPopover className="text-white">
-          <AppButton
-            text="Tandai"
-            className="rounded-sm !p-[10px] bg-transparent !text-black font-normal font-poppins"
-            onClick={() => {
-              setIsOpen(true);
-              props.onChangeCheckedMode?.(true);
-            }}
-          />
+          <AppContainer className="flex flex-col items-end">
+            <AppContainer
+              className="flex items-center py-[4px] px-[10px] hover:bg-green-200 w-full rounded-lg justify-between cursor-pointer"
+              onClick={() => {
+                setIsOpen(true);
+                props.onChangeCheckedMode?.(true);
+              }}
+            >
+              <p className="font-poppins text-[12px]">Tandai Feedback </p>
+              <Icon
+                icon="material-symbols:check-rounded"
+                className="text-green-400 text-[24px]"
+              />
+            </AppContainer>
+            <AppContainer
+              className="flex items-center py-[4px] px-[10px] hover:bg-purple-200 w-full rounded-lg justify-between cursor-pointer"
+              onClick={props.onCopy}
+            >
+              <p className="font-poppins text-[12px]">Copy Feedback Link</p>
+              <Icon
+                icon="mingcute:copy-fill"
+                className="text-purple-400 text-[24px]"
+              />
+            </AppContainer>
+          </AppContainer>
         </AppPopover>
       )}
     </AppContainer>

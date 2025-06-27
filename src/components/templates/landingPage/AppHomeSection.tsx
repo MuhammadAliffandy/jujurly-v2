@@ -11,6 +11,7 @@ const AppHomeSection = () => {
       flex flex-col-reverse md:flex-col-reverse lg:flex-row xl:flex-row 
       px-[20px] sm:px-[20px] md:px-[20px] lg:px-[100px] xl:px-[100px] 
       py-[100px] sm:py-[100px] md:py-[100px] lg:py-[0px] xl:py-[0px] 
+      mt-[0px] sm:mt-[0px] md:mt-[0px] lg:mt-[10px] xl:mt-[100px] 
       items-center "
       id="home"
     >

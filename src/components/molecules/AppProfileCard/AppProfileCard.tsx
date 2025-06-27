@@ -21,9 +21,9 @@ const AppProfileCard: React.FC<AppProfileCardProps> = (props) => {
         subtitleClassName="text-[10px] font-normal !font-poppins text-gray-500 !mt-[-2px] !mb-[-2px] min-w-fit"
       />
       <img
-        alt="profile picture"
+        alt="profile"
         src="https://picsum.photos/seed/picsum/200/300"
-        className="rounded-full w-[40px] h-[40px] flex-shrink-0"
+        className="rounded-full w-[40px] h-[40px] flex-shrink-0 "
       />
     </AppContainer>
   );
