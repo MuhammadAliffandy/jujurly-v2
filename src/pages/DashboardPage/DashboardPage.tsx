@@ -70,6 +70,7 @@ const DashboardPage: React.FC = () => {
   const { control, watch } = useForm({});
   const searchValue = watch("search");
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const getUser = async () => {
     try {
       const res = await userRepository.getUser();
@@ -85,6 +86,7 @@ const DashboardPage: React.FC = () => {
     }
   };
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const handleFeedbackList = async () => {
     setIsLoading(true);
     console.log(isLoading);
