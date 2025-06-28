@@ -25,17 +25,17 @@ function FeedbackForm({ userId }: FeedbackFormProps) {
 
   const textFeedbackPrimary = [
     {
-      icon: "mdi:mail",
+      icon: "maki:town",
       title: "Pertama kali Kenal ",
       subtitle: "Coba Ceritain kamu awal ketemu",
     },
     {
-      icon: "mdi:mail",
+      icon: "mdi:feedback-outline",
       title: "Isi Feedback ",
       subtitle: "Berikan feedback yang jelas dan konstruktif",
     },
     {
-      icon: "mdi:mail",
+      icon: "fluent:slide-text-title-16-filled",
       title: "Isi Konteks ",
       subtitle: "Berikan Konteks tentang feedback kamu",
     },
