@@ -187,16 +187,14 @@ const DashboardPage: React.FC = () => {
         {/*  */}
         <AppContainer className="w-full h-full max-h-[90vh]   flex items-stretch bg-gray-100 gap-[10px] p-[10px] flex-grow ">
           <AppContainer
-            dataAos="flip-left"
-            dataAosDelay={300}
             className={`
               ${
                 feedbackViewOpen
                   ? "!hidden sm:!hidden md:!flex lg:!flex xl:!flex"
-                  : "flex"
+                  : "!flex"
               }
               w-full sm:w-full md:w-[45%] lg:w-[45%] xl:w-[45%]
-              h-full flex flex-col gap-[10px] p-[20px] bg-white  rounded-2xl shadow-xl
+              h-full  flex-col gap-[10px] p-[20px] bg-white  rounded-2xl shadow-xl
             `}
           >
             <AppMiniToolbar
@@ -219,8 +217,11 @@ const DashboardPage: React.FC = () => {
                   constructiveCriticism={fb.constructiveCriticism}
                   timestamp={convertDateString(fb.timestamp)}
                   onClickCard={() => {
-                    setFeedback(fb as FeedbackItem);
-                    setfeedbackViewOpen(true);
+                    if (!checkedMode) {
+                      setFeedback(fb as FeedbackItem);
+                      setfeedbackViewOpen(true);
+                    }
+                    console.log("hay");
                   }}
                   onChecked={(value: boolean) => {
                     handleFeedbackSelected(value, fb.id || 0);
@@ -236,11 +237,7 @@ const DashboardPage: React.FC = () => {
             w-full h-full
             hidden sm:hidden md:flex lg:flex  xl:flex flex-col gap-[20px] rounded-2xl shadow-xl flex-grow   `}
           >
-            <AppContainer
-              className="flex flex-col w-full h-full gap-[10px] rounded-2xl "
-              dataAos="flip-right"
-              dataAosDelay={300}
-            >
+            <AppContainer className="flex flex-col w-full h-full gap-[10px] rounded-2xl ">
               <AppFeedbackView
                 id={1}
                 sender="Rina"

@@ -22,8 +22,12 @@ const AppFeedbackCard: React.FC<AppFeedbackCard> = (props) => {
   const isCheckedRef = useRef<boolean>(props.checked);
 
   const handleClick = () => {
-    isCheckedRef.current = !isCheckedRef.current;
-    props.onChecked?.(isCheckedRef.current);
+    if (props.checkMode) {
+      isCheckedRef.current = !isCheckedRef.current;
+      props.onChecked?.(isCheckedRef.current);
+    } else {
+      props.onClickCard?.();
+    }
   };
 
   return (
