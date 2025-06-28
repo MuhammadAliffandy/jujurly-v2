@@ -1,6 +1,34 @@
 import AppContainer from "../../atoms/AppContainer/AppContainer";
 import AppAccordion from "../../molecules/AppAccordion/AppAccordion";
 const AppFaqSection: React.FC = () => {
+  const faqs = [
+    {
+      title: "Apa itu aplikasi ini?",
+      description:
+        "Aplikasi ini memungkinkan Anda memberikan umpan balik secara anonim menggunakan AI dengan nada positif atau netral, lalu membagikan tautan umpan balik Anda kepada orang lain.",
+    },
+    {
+      title: "Bagaimana menjaga anonimitas?",
+      description:
+        "Kami tidak menyimpan data pribadi pengirim. Setiap umpan balik sepenuhnya anonim dan aman.",
+    },
+    {
+      title: "Bisakah memilih nada umpan balik?",
+      description:
+        "Tentu. Anda dapat memilih nada positif atau netral, dan AI kami akan membantu menyusunnya.",
+    },
+    {
+      title: "Bagaimana cara membagikan tautan feedback?",
+      description:
+        "Setelah menulis umpan balik, Anda mendapatkan tautan khusus untuk dibagikan.",
+    },
+    {
+      title: "Apakah bisa memberikan saran?",
+      description:
+        "Ya, Anda dapat menambahkan saran, dan AI akan membantu merangkumnya dengan baik.",
+    },
+  ];
+
   return (
     <section
       className="w-full h-full bg-white flex flex-col gap-[20px] items-center justify-center 
@@ -14,16 +42,14 @@ const AppFaqSection: React.FC = () => {
         Berikut <strong>Pertanyaan yang Sering Diajukan</strong>
       </h3>
       <AppContainer className=" w-full sm:w-full  md:w-full lg:w-[80%] xl:w-[80%] flex flex-col items-center gap-[15px]">
-        {Array.from({ length: 5 }, (_, index) => {
+        {faqs.map((data, index) => {
           return (
             <AppAccordion
               key={index}
               dataAos="fade-up"
               dataAosDelay={index * 200}
-              title={`Pertanyaan ${index + 1}`}
-              subtitle={`Ini adalah jawaban untuk pertanyaan ${
-                index + 1
-              }. Kami sangat menghargai setiap pertanyaan yang masuk dan berusaha memberikan jawaban yang jelas dan informatif. Jika ada pertanyaan lain, jangan ragu untuk menghubungi kami.`}
+              title={data.title}
+              subtitle={data.description}
             />
           );
         })}

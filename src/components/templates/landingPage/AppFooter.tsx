@@ -21,34 +21,58 @@ const AppFooter: React.FC = () => {
           </p>
         </AppContainer>
         <AppContainer className="flex items-center gap-[10px]">
-          <Icon
-            data-aos="fade-down"
-            data-aos-delay="400"
-            icon={"mdi:instagram"}
-            className="text-[40px] text-white rounded-full border-2 border-white p-[5px]"
-          />
-          <Icon
-            data-aos="fade-down"
-            data-aos-delay="500"
-            icon={"mdi:facebook"}
-            className="text-[40px] text-white rounded-full border-2 border-white p-[5px]"
-          />
-          <Icon
-            data-aos="fade-down"
-            data-aos-delay="600"
-            icon={"mdi:twitter"}
-            className="text-[40px] text-white rounded-full border-2 border-white p-[5px]"
-          />
-          <Icon
-            data-aos="fade-down"
-            data-aos-delay="700"
-            icon={"mdi:linkedin"}
-            className="text-[40px] text-white rounded-full border-2 border-white p-[5px]"
-          />
+          <a
+            href="https://instagram.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Icon
+              data-aos="fade-down"
+              data-aos-delay="400"
+              icon={"mdi:instagram"}
+              className="text-[40px] text-white rounded-full border-2 border-white p-[5px]"
+            />
+          </a>
+          <a
+            href="https://facebook.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Icon
+              data-aos="fade-down"
+              data-aos-delay="500"
+              icon={"mdi:facebook"}
+              className="text-[40px] text-white rounded-full border-2 border-white p-[5px]"
+            />
+          </a>
+          <a
+            href="https://twitter.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Icon
+              data-aos="fade-down"
+              data-aos-delay="600"
+              icon={"mdi:twitter"}
+              className="text-[40px] text-white rounded-full border-2 border-white p-[5px]"
+            />
+          </a>
+          <a
+            href="https://linkedin.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Icon
+              data-aos="fade-down"
+              data-aos-delay="700"
+              icon={"mdi:linkedin"}
+              className="text-[40px] text-white rounded-full border-2 border-white p-[5px]"
+            />
+          </a>
         </AppContainer>
         <p className="text-[14px] font-poppins text-center text-white/70 w-[60%]">
-          Officia ab ut qui voluptas. Tempora autem earum accusamus ducimus
-          saepe et sed totam rem.
+          Jujurly, tempat berbagi cerita dan umpan balik dengan tulus. Bersama,
+          kita ciptakan ruang yang positif, aman, dan membangun
         </p>
       </AppContainer>
     </footer>

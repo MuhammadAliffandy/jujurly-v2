@@ -38,17 +38,20 @@ const AppContactSection = () => {
               data-aos-delay={200}
               className="text-[16px] font-poppins w-[90%] text-center lg:text-left xl:text-left"
             >
-              Sint repudiandae cumque eos quidem qui. Quod ab officiis et
-              ratione aut. Non officia sint sunt illum accusantium dolore
-              voluptatem cupiditate. Saepe laborum pariatur eos blanditiis. Nam
-              aperiam fugiat commodi iste qui est aut ut. Aut sint qui
-              asperiores.
+              Kami selalu terbuka untuk ide segar dan gagasan kreatif. Dengan
+              Jujurly, setiap masukan jadi peluang untuk tumbuh. Kolaborasi ini
+              bukan hanya tentang berbagi, tapi juga menciptakan sesuatu yang
+              bermanfaat, menyenangkan, dan penuh inspirasi untuk semua.
             </p>
             <AppButton
               dataAos="zoom-in"
               dataAosDelay={400}
               text="Hubungi Kami"
               className="!w-fit font-unbounded"
+              onClick={() => {
+                window.location.href =
+                  "https://mail.google.com/mail/?view=cm&to=team@jujurly.com&su=Judul&body=Isi%20pesan";
+              }}
             />
           </AppContainer>
         </AppContainer>

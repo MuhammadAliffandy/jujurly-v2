@@ -17,11 +17,11 @@ const AppAccordion: React.FC<AppAccordionProps> = (props) => {
       dataAos={props.dataAos}
       dataAosDelay={props.dataAosDelay}
     >
-      <Accordion className="!rounded-[20px] p-[10px]">
+      <Accordion className="!rounded-[20px] p-[10px] w-full">
         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
           <p className="font-unbounded text-[16px] font-bold ">{props.title}</p>
         </AccordionSummary>
-        <AccordionDetails>
+        <AccordionDetails className="w-ffull">
           <p className="text-[14px] font-poppins ">{props.subtitle}</p>
         </AccordionDetails>
       </Accordion>

@@ -2,6 +2,19 @@ import AppContainer from "../../atoms/AppContainer/AppContainer";
 import AppHeadline from "../../molecules/AppHeadline/AppHeadline";
 
 const AppFeatureSection: React.FC = () => {
+  const features = [
+    {
+      title: "Feedback jujur, biar makin mujur.",
+      description:
+        "Suara dan masukannya kamu sangat berarti buat kami. Dari komentar kecil hingga saran besar, semuanya membantu kami menyempurnakan karya ini.",
+    },
+    {
+      title: "Buat kamu yang suka berbagi cerita.",
+      description:
+        "Kami ingin mendengar kisahmu! Bagikan pengalamanmu dengan kami, dan mari bersama-sama menciptakan komunitas yang penuh inspirasi.",
+    },
+  ];
+
   return (
     <section
       className="w-full  bg-white items-center gap-[20px]
@@ -25,7 +38,7 @@ const AppFeatureSection: React.FC = () => {
           </h3>
 
           <AppContainer className="flex flex-col gap-[30px]">
-            {Array.from({ length: 2 }, (_, index) => {
+            {features.map((data, index) => {
               return (
                 <AppContainer
                   key={index}
@@ -34,15 +47,13 @@ const AppFeatureSection: React.FC = () => {
                   dataAosDelay={index * 200}
                 >
                   <AppContainer className="w-[50px] h-[50px] rounded-full shadow-lg flex  flex-shrink-0 items-center justify-center font-bold">
-                    1
+                    {index + 1}
                   </AppContainer>
                   <AppHeadline
                     className="items-start !gap-[10px] "
-                    title={"Feedback jujur, biar makin mujur."}
+                    title={data.title}
                     titleClassName="text-[14px] font-bold text-black  !font-unbounded "
-                    subtitle={
-                      " Suara dan masukannya kamu sangat berarti buat kami. Dari komentar kecil hingga saran besar, semuanya membantu kami menyempurnakan karya ini. "
-                    }
+                    subtitle={data.description}
                     subtitleClassName="text-[12px]  text-black font-poppins text-left !font-poppins w-full"
                   />
                 </AppContainer>
