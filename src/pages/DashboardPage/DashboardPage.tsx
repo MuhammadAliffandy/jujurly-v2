@@ -70,7 +70,6 @@ const DashboardPage: React.FC = () => {
   const { control, watch } = useForm({});
   const searchValue = watch("search");
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const getUser = async () => {
     try {
       const res = await userRepository.getUser();
@@ -85,7 +84,7 @@ const DashboardPage: React.FC = () => {
       toast.error("Gagal Menemukan Pengguna.");
     }
   };
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+
   const handleFeedbackList = async () => {
     setIsLoading(true);
     console.log(isLoading);
@@ -134,15 +133,21 @@ const DashboardPage: React.FC = () => {
     setFeedbacks(filteredNotes);
   };
 
-  // useEffect(() => {
-  //   getUser();
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, []);
+  const backend = false;
 
-  // useEffect(() => {
-  //   handleFeedbackList();
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, []);
+  useEffect(() => {
+    if (backend) {
+      getUser();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    if (backend) {
+      handleFeedbackList();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
     if (searchValue !== undefined) {
